@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class Alert {
 
-    private String ticker;
+    private Stock stock;
     private BigDecimal triggerPrice;
     private LocalDateTime createdAt;
     private AlertType type;
@@ -14,17 +14,8 @@ public class Alert {
 
     public Alert() {}
 
-    public Alert(String ticker, BigDecimal triggerPrice, AlertType type, String message) {
-        this.ticker = ticker;
-        this.triggerPrice = triggerPrice;
-        this.createdAt = LocalDateTime.now();
-        this.type = type;
-        this.status = AlertStatus.ONLINE;
-        this.message = message;
-    }
-
-    public Alert(String ticker, BigDecimal triggerPrice, String message, AlertStatus status, AlertType type) {
-        this.ticker = ticker;
+    public Alert(Stock stock, BigDecimal triggerPrice, AlertType type, AlertStatus status, String message) {
+        this.stock = stock;
         this.triggerPrice = triggerPrice;
         this.createdAt = LocalDateTime.now();
         this.type = type;
@@ -32,12 +23,12 @@ public class Alert {
         this.message = message;
     }
 
-    public String getTicker() {
-        return ticker;
+    public Stock getStock() {
+        return stock;
     }
 
-    public void setTicker(String ticker) {
-        this.ticker = ticker;
+    public void setStock(Stock stock) {
+        this.stock = stock;
     }
 
     public BigDecimal getTriggerPrice() {
