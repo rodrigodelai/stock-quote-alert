@@ -1,3 +1,5 @@
+package br.com.inoa;
+
 public class StockQuoteAlertApplication {
 
     public static void main(String[] args) {
