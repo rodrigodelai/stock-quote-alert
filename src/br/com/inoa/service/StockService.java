@@ -12,8 +12,9 @@ public class StockService {
     }
 
     public Stock update(Stock stock, BigDecimal price) {
-        stock.setPrice(price);
         stock.setLastUpdate(LocalDateTime.now());
+        stock.setLastPrice(stock.getCurrentPrice());
+        stock.setPrice(price);
         return stock;
     }
 

@@ -1,6 +1,7 @@
 package br.com.inoa.model;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 
 public class Alert {
@@ -16,7 +17,7 @@ public class Alert {
 
     public Alert(Stock stock, BigDecimal triggerPrice, AlertType type, AlertStatus status, String message) {
         this.stock = stock;
-        this.triggerPrice = triggerPrice;
+        this.triggerPrice = triggerPrice.setScale(2, RoundingMode.HALF_DOWN);
         this.createdAt = LocalDateTime.now();
         this.type = type;
         this.status = status;
@@ -36,7 +37,7 @@ public class Alert {
     }
 
     public void setTriggerPrice(BigDecimal triggerPrice) {
-        this.triggerPrice = triggerPrice;
+        this.triggerPrice = triggerPrice.setScale(2, RoundingMode.HALF_DOWN);
     }
 
     public LocalDateTime getCreatedAt() {
